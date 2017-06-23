@@ -1,0 +1,25 @@
+<div>
+    <div class="container">
+        <div class="text-center">
+            <!-- pager -->
+            <ul class="pagination" *ngIf="pager.pages && pager.pages.length" ><hr />
+                <li [ngClass]="{disabled:pager.currentPage === 1}">
+                    <a class="anchor" (click)="setPage(1)"><u>First</u></a>
+                </li>
+                <li [ngClass]="{disabled:pager.currentPage === 1}">
+                    <a class="anchor"(click)="setPage(pager.currentPage - 1)"><u><< Previous</u></a>
+                </li>
+                <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                    <a class="anchor" (click)="setPage(page)"><u>{{page}}</u></a>
+                </li>
+                <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                    <a class="anchor" (click)="setPage(pager.currentPage + 1)"><u>Next >></u></a>
+                </li>
+                <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                    <a class="anchor" (click)="setPage(pager.totalPages)"><u>Last</u></a>
+                </li>
+            </ul>
+            <hr />
+        </div>
+    </div>
+</div>

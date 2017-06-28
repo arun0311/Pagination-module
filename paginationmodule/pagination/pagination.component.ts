@@ -1,9 +1,5 @@
 import { Component,Input,Output,EventEmitter,OnInit } from '@angular/core';
 
-import { Http,Headers,RequestOptions,Response } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-
-
 @Component({
 selector: 'pagination',
 templateUrl: './pagination.component.html',
@@ -19,20 +15,15 @@ constructor( ) { }
 // pager object
 pager: any={};
 
-// paged items
-
 ngOnInit( ) {
-
 this.setPage(1);
-
 }
 
 setPage(page: number) {
 if(page<1||page>this.pager.totalPages) {
-
 return;
-
 }
+
 this.pageChange.emit(page);
 
 // get pager object from getPager function
